@@ -1,0 +1,144 @@
+.navbar {
+  background: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--primary-dark);
+}
+
+.logoText {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.logoSubtext {
+  font-size: 0.65rem;
+  color: var(--secondary);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navMenu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navMenu li a {
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navMenu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.navMenu li a:hover {
+  color: var(--primary);
+}
+
+.navMenu li a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  background: none;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navContent {
+    gap: 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+    box-shadow: var(--shadow);
+    border-radius: 0 0 12px 12px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navMenu.active {
+    max-height: 500px;
+  }
+
+  .navMenu li a {
+    display: block;
+  }
+
+  .navMenu li a::after {
+    display: none;
+  }
+
+  .logo {
+    flex-direction: row;
+    gap: 5px;
+    font-size: 1.2rem;
+  }
+
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .logoSubtext {
+    font-size: 0.6rem;
+  }
+}
