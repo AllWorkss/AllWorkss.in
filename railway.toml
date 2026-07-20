@@ -8,3 +8,6 @@ healthcheckPath = "/"
 healthcheckInterval = 10
 healthcheckTimeout = 5
 restartPolicyMaxRetries = 5
+
+[deploy.variables]
+RAILPACK_INSTALL_CMD = "npm install"
