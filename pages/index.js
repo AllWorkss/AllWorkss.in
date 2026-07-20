@@ -1,82 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { SERVICES_DATA } from '../lib/services-data';
 import styles from '../styles/Home.module.css';
 
-const MAIN_SERVICES = [
-  {
-    id: 'full-stack-development',
-    icon: '💻',
-    title: 'Full Stack Development',
-    description: 'Tailored software solutions to streamline operations, automate workflows, and enhance digital scalability.',
-    features: ['Custom Applications', 'System Integration', 'Cloud-Ready Solutions', 'Scalable Architecture'],
-    link: '/services/full-stack-development',
-    whatsappMessage: 'Hi! I am interested in Full Stack Development services.',
-  },
-  {
-    id: 'website-development',
-    icon: '🌐',
-    title: 'Website Development',
-    description: 'High-performance, visually cohesive websites with seamless user experience and scalable infrastructure.',
-    features: ['Responsive Design', 'SEO Optimized', 'E-commerce Ready', 'Mobile-First'],
-    link: '/services/website-development',
-    whatsappMessage: 'Hello! I need professional website development services.',
-  },
-  {
-    id: 'data-visualization',
-    icon: '📊',
-    title: 'Data Visualization Reports',
-    description: 'Transform raw data into clear, interactive, decision-ready reports using Power BI and Tableau.',
-    features: ['Power BI Dashboards', 'Tableau Reports', 'Real-time Analytics', 'Custom Visualizations'],
-    link: '/services/data-visualization',
-    whatsappMessage: 'Hi! I need data visualization and reporting services.',
-  },
-  {
-    id: 'business-analysis',
-    icon: '📈',
-    title: 'Business Analysis',
-    description: 'Bridge data, strategy, and execution—ensuring every decision is backed by insight and aligned with growth.',
-    features: ['SWOT Analysis', 'Process Optimization', 'Operational Efficiency', 'Risk Assessment'],
-    link: '/services/business-analysis',
-    whatsappMessage: 'Hi! I would like business analysis services.',
-  },
-  {
-    id: 'business-intelligence',
-    icon: '🧠',
-    title: 'Business Intelligence',
-    description: 'Turn raw data into actionable insights that drive smarter decisions and operational efficiency.',
-    features: ['Customer Intelligence', 'Financial Intelligence', 'Operations Intelligence', 'Sales Analytics'],
-    link: '/services/business-intelligence',
-    whatsappMessage: 'Hello! I need business intelligence solutions.',
-  },
-  {
-    id: 'inventory-management',
-    icon: '📦',
-    title: 'Inventory Management',
-    description: 'Dual-mode system supporting both digital marketplace and physical product handling with real-time tracking.',
-    features: ['Real-time Sync', 'Multi-Channel Support', 'Automated Alerts', 'Yarsa Store Integration'],
-    link: '/services/inventory-management',
-    whatsappMessage: 'Hi! I need inventory management solutions.',
-  },
-  {
-    id: 'business-consultancy',
-    icon: '💼',
-    title: 'Business Consultancy',
-    description: 'Strategic, operational, and digital guidance for startups, SMEs, and growth-stage ventures.',
-    features: ['Strategy Consulting', 'Financial Planning', 'Operations Consulting', 'Market Entry'],
-    link: '/services/business-consultancy',
-    whatsappMessage: 'Hi! I would like business consultancy services.',
-  },
-  {
-    id: 'promotion-branding',
-    icon: '🎨',
-    title: 'Promotion & Brand Building',
-    description: 'End-to-end brand development and promotional strategies for manufacturing and digital enterprises.',
-    features: ['Logo Design', 'Brand Strategy', 'Marketing Campaigns', 'Social Media Management'],
-    link: '/services/promotion-branding',
-    whatsappMessage: 'Hello! I am interested in brand building services.',
-  },
-];
+const MAIN_SERVICES = Object.entries(SERVICES_DATA).map(([key, service]) => ({
+  id: key,
+  icon: service.icon,
+  title: service.name,
+  description: service.description,
+  features: service.keyHighlights,
+  link: `/services/${key}`,
+  whatsappMessage: service.whatsappMessage,
+  tagline: service.tagline,
+}));
 
 export default function Home() {
   return (
