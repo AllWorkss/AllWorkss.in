@@ -18,7 +18,10 @@ export default function Footer() {
       <div className="container">
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
-            <h3>AllWorkss</h3>
+            <div className={styles.footerLogoContainer}>
+              <img src="/logo.png" alt="AllWorkss Logo" className={styles.footerLogo} />
+              <h3>AllWorkss</h3>
+            </div>
             <p>Empowering startups and enterprises through premium software architecture, strategic SAP consulting, and data-driven intelligence.</p>
             <div className={styles.socialLinks}>
               <a href={`https://wa.me/91${COMPANY_INFO.phone}`} target="_blank" rel="noopener noreferrer" title="WhatsApp">

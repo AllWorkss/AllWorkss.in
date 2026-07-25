@@ -9,9 +9,12 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className="container">
         <div className={styles.navContent}>
-          <Link href="/" className={styles.logo}>
-            <span className={styles.logoText}>AllWorkss</span>
-            <span className={styles.logoSubtext}>Consultancy</span>
+          <Link href="/" className={styles.logoContainer}>
+            <img src="/logo.png" alt="AllWorkss Logo" className={styles.logoImage} />
+            <div className={styles.logoTextWrapper}>
+              <span className={styles.logoText}>AllWorkss</span>
+              <span className={styles.logoSubtext}>Consultancy</span>
+            </div>
           </Link>
 
           <button
