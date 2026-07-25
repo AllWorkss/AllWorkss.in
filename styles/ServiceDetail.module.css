@@ -1,8 +1,9 @@
 .heroSection {
   padding: 140px 0 80px;
   overflow: hidden;
-  background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.04) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(0, 198, 255, 0.04) 0%, transparent 50%),
+              linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
   border-bottom: 1px solid var(--border-glass);
 }
 
@@ -18,7 +19,7 @@
   font-weight: 800;
   margin-bottom: 16px;
   line-height: 1.2;
-  background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -33,7 +34,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 16px;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .description {
@@ -58,13 +59,14 @@
 /* Highlights */
 .highlightsSection {
   padding: 80px 0;
-  background: rgba(255, 255, 255, 0.01);
+  background: #ffffff;
 }
 
 .highlightsSection h2 {
   font-size: 2rem;
   margin-bottom: 40px;
   text-align: center;
+  color: var(--text-primary);
 }
 
 .highlightsGrid {
@@ -74,17 +76,17 @@
 }
 
 .highlightCard {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 102, 255, 0.05);
   border-radius: var(--radius-md);
   padding: 24px;
   display: flex;
   gap: 16px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .checkmark {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: bold;
   font-size: 1.2rem;
   line-height: 1;
@@ -100,12 +102,14 @@
 .subServicesSection {
   padding: 80px 0;
   border-top: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
 }
 
 .subServicesSection h2 {
   font-size: 2rem;
   margin-bottom: 12px;
   text-align: center;
+  color: var(--text-primary);
 }
 
 .sectionSubtitle {
@@ -121,26 +125,27 @@
 }
 
 .subServiceCard {
-  background: var(--bg-glass-light);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 30px;
   display: flex;
   flex-direction: column;
   height: 100%;
   transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.02);
 }
 
 .subServiceCard:hover {
   border-color: var(--primary);
-  background-color: rgba(255, 255, 255, 0.02);
   transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 102, 255, 0.05);
 }
 
 .subServiceCard h3 {
   font-size: 1.2rem;
   margin-bottom: 12px;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .subServiceCard p {
@@ -161,11 +166,11 @@
 .featureTag {
   background-color: var(--primary-glow);
   color: var(--primary);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(0, 102, 255, 0.1);
   font-size: 0.75rem;
   padding: 4px 10px;
   border-radius: 100px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .learnMore {
@@ -177,7 +182,7 @@
 /* Why Choose */
 .whyChooseSection {
   padding: 80px 0;
-  background: rgba(255, 255, 255, 0.01);
+  background: #ffffff;
   border-top: 1px solid var(--border-glass);
 }
 
@@ -185,6 +190,7 @@
   font-size: 2rem;
   margin-bottom: 40px;
   text-align: center;
+  color: var(--text-primary);
 }
 
 .benefitsGrid {
@@ -194,8 +200,8 @@
 }
 
 .benefitCard {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 102, 255, 0.04);
   border-radius: var(--radius-md);
   padding: 24px;
   text-align: center;
@@ -204,14 +210,15 @@
 .benefitCard h4 {
   font-size: 1.1rem;
   margin: 12px 0 8px;
+  color: var(--text-primary);
 }
 
 .benefitIcon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--accent-glow);
-  color: var(--accent);
+  background: var(--primary-glow);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,11 +237,13 @@
   padding: 100px 0;
   text-align: center;
   border-top: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
 }
 
 .ctaSection h2 {
   font-size: 2.25rem;
   margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .ctaSection p {

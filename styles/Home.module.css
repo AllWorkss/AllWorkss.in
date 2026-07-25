@@ -1,9 +1,10 @@
 .hero {
   position: relative;
-  padding: 140px 0 100px;
+  padding: 160px 0 110px;
   overflow: hidden;
-  background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.04) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(0, 198, 255, 0.04) 0%, transparent 50%),
+              linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
 }
 
 .heroContent {
@@ -20,15 +21,16 @@
 }
 
 .heroTitle {
-  font-size: 3.75rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 24px;
   letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
 
 .highlight {
-  background: linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #10b981 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -64,12 +66,8 @@
   font-family: var(--font-heading);
   font-size: 2.25rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--primary);
   line-height: 1;
-  background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .statsLabel {
@@ -87,34 +85,35 @@
   position: relative;
 }
 
+/* Fancy logo animation container */
 .heroGlobe {
   width: 320px;
   height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 50px; /* Rounded square similar to logo */
+  background: #ffffff;
+  border: 2px solid rgba(0, 102, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  animation: spin 60s linear infinite;
+  box-shadow: 0 20px 50px rgba(0, 102, 255, 0.06);
+  animation: float 6s ease-in-out infinite;
 }
 
 .heroGlobeIcon {
-  font-size: 5rem;
-  animation: float 4s ease-in-out infinite;
+  font-size: 6rem;
+  transition: transform 0.5s ease;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.heroGlobe:hover .heroGlobeIcon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 /* Founder Section */
 .founderSection {
   padding: 100px 0;
   position: relative;
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--bg-secondary);
   border-top: 1px solid var(--border-glass);
   border-bottom: 1px solid var(--border-glass);
 }
@@ -126,23 +125,23 @@
   align-items: center;
 }
 
+/* Rounded square card matching logo container */
 .profileCard {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 40px 30px;
   text-align: center;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .profileCard:hover {
   border-color: var(--primary);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: var(--shadow-lg), 0 20px 40px rgba(0, 102, 255, 0.06);
+  transform: translateY(-5px);
 }
 
 .profileCard::before {
@@ -159,32 +158,33 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-glow), rgba(16, 185, 129, 0.1));
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 198, 255, 0.05));
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 24px;
-  border: 2px solid var(--border-glass);
+  border: 2px solid rgba(0, 102, 255, 0.05);
   font-size: 3.5rem;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .profileCard:hover .avatarContainer {
-  transform: scale(1.05) rotate(5deg);
+  transform: scale(1.08) rotate(3deg);
   border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 198, 255, 0.1));
 }
 
 .founderName {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 800;
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
 .founderTitle {
   font-size: 0.9rem;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 20px;
@@ -198,6 +198,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  font-weight: 500;
 }
 
 .founderText {
@@ -207,11 +208,8 @@
 }
 
 .founderText h2 {
-  font-size: 2.25rem;
-  background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2.5rem;
+  color: var(--text-primary);
 }
 
 .founderText p {
@@ -227,7 +225,7 @@
 .expertise h4 {
   font-size: 1.1rem;
   margin-bottom: 16px;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .expertiseList {
@@ -246,54 +244,72 @@
 }
 
 .expertiseIcon {
-  color: var(--accent);
+  color: var(--primary);
+  font-weight: bold;
   font-size: 1rem;
 }
 
-/* Services Showcase */
+/* Fancy Logo-Inspired Cards */
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
 }
 
 .serviceCard {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.06);
   border-radius: var(--radius-md);
-  padding: 32px;
+  padding: 36px;
   display: flex;
   flex-direction: column;
   height: 100%;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.02);
+}
+
+/* Beautiful dynamic card border highlight on hover */
+.serviceCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .serviceCard:hover {
   transform: translateY(-8px);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  border-color: rgba(0, 102, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.06), 0 0 25px rgba(0, 102, 255, 0.04);
+}
+
+.serviceCard:hover::after {
+  opacity: 1;
 }
 
 .serviceIcon {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   margin-bottom: 20px;
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .serviceCard:hover .serviceIcon {
-  transform: scale(1.1) translateY(-2px);
+  transform: scale(1.15) translateY(-2px);
 }
 
 .serviceCard h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 800;
   margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .serviceCard p {
@@ -308,9 +324,9 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 24px;
-  border-top: 1px solid var(--border-glass);
-  padding-top: 16px;
+  margin-bottom: 28px;
+  border-top: 1px solid rgba(0, 102, 255, 0.05);
+  padding-top: 20px;
 }
 
 .highlightItem {
@@ -322,7 +338,8 @@
 }
 
 .checkIcon {
-  color: var(--accent);
+  color: var(--primary);
+  font-weight: bold;
   font-size: 0.85rem;
 }
 
@@ -342,8 +359,8 @@
   width: 42px;
   height: 42px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-glass);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 102, 255, 0.08);
+  background: rgba(0, 102, 255, 0.01);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -352,7 +369,7 @@
 }
 
 .whatsappIcon:hover {
-  background: rgba(37, 211, 102, 0.15);
+  background: rgba(37, 211, 102, 0.1);
   border-color: #25d366;
   transform: scale(1.05);
 }
@@ -360,7 +377,7 @@
 /* Why Choose Us */
 .whyChooseSection {
   padding: 100px 0;
-  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+  background: #ffffff;
 }
 
 .benefitsGrid {
@@ -370,34 +387,36 @@
 }
 
 .benefitCard {
-  background: var(--bg-glass-light);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 102, 255, 0.04);
   border-radius: var(--radius-md);
-  padding: 30px;
+  padding: 32px;
   transition: all 0.3s ease;
 }
 
 .benefitCard:hover {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: rgba(0, 102, 255, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 102, 255, 0.04);
 }
 
 .benefitIcon {
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin-bottom: 16px;
 }
 
 .benefitCard h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   margin-bottom: 8px;
+  color: var(--text-primary);
 }
 
 .benefitCard p {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* CTA Section */
@@ -406,7 +425,7 @@
   text-align: center;
   position: relative;
   border-top: 1px solid var(--border-glass);
-  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
 }
 
 .ctaContent {
@@ -417,6 +436,7 @@
 .ctaContent h2 {
   font-size: 2.5rem;
   margin-bottom: 16px;
+  color: var(--text-primary);
 }
 
 .ctaContent p {

@@ -1,8 +1,9 @@
 .bookingSection {
   min-height: 100vh;
   padding: 120px 0 80px;
-  background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.04) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(0, 198, 255, 0.04) 0%, transparent 50%),
+              linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
 }
 
 .bookingContent {
@@ -17,7 +18,7 @@
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -31,10 +32,8 @@
 }
 
 .infoBox {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 30px;
   margin-bottom: 30px;
@@ -44,7 +43,7 @@
 .infoBox h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 20px;
 }
 
@@ -67,9 +66,9 @@
   justify-content: center;
   width: 20px;
   height: 20px;
-  background-color: var(--accent-glow);
-  color: var(--accent);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background-color: var(--primary-glow);
+  color: var(--primary);
+  border: 1px solid rgba(0, 102, 255, 0.15);
   border-radius: 50%;
   font-weight: bold;
   font-size: 0.75rem;
@@ -77,8 +76,8 @@
 }
 
 .contactBox {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
-  border: 1px solid var(--border-glass);
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.03) 0%, rgba(0, 198, 255, 0.05) 100%);
+  border: 1px solid rgba(0, 102, 255, 0.08);
   border-radius: var(--radius-md);
   padding: 30px;
   margin-bottom: 30px;
@@ -87,7 +86,7 @@
 .contactBox h4 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 10px;
 }
 
@@ -125,10 +124,8 @@
 }
 
 .availability {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 30px;
   box-shadow: var(--shadow-md);
@@ -137,7 +134,7 @@
 .availability h4 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -148,10 +145,8 @@
 }
 
 .bookingForm {
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 40px;
   box-shadow: var(--shadow-lg);
@@ -164,7 +159,7 @@
 .formGroup label {
   display: block;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 8px;
   font-size: 0.9rem;
 }
@@ -174,13 +169,13 @@
 .formGroup textarea {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid var(--border-glass);
+  border: 1px solid rgba(0, 102, 255, 0.12);
   border-radius: var(--radius-sm);
   font-family: inherit;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.02);
-  color: #ffffff;
+  background-color: rgba(0, 102, 255, 0.01);
+  color: var(--text-primary);
 }
 
 .formGroup input:focus,
@@ -188,13 +183,13 @@
 .formGroup textarea:focus {
   outline: none;
   border-color: var(--primary);
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #ffffff;
   box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
 .formGroup select option {
-  background-color: var(--bg-secondary);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: var(--text-primary);
 }
 
 .formGroup textarea {
@@ -221,13 +216,13 @@
 .successIcon {
   font-size: 4rem;
   margin-bottom: 20px;
-  color: var(--accent);
+  color: var(--success);
 }
 
 .successMessage h3 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 15px;
 }
 

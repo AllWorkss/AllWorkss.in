@@ -20,7 +20,7 @@
 }
 
 .breadcrumb a:hover {
-  color: #ffffff;
+  color: var(--primary);
 }
 
 .breadcrumb span {
@@ -28,13 +28,14 @@
 }
 
 .activeBreadcrumb {
-  color: var(--accent) !important;
+  color: var(--primary) !important;
   font-weight: 600;
 }
 
 .hero {
   padding: 100px 0 60px;
-  background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+  background: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.04) 0%, transparent 40%),
+              linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
   text-align: center;
   border-bottom: 1px solid var(--border-glass);
 }
@@ -43,7 +44,7 @@
   font-size: 2.75rem;
   font-weight: 800;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -53,7 +54,7 @@
   font-size: 1.05rem;
   color: var(--primary);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 24px;
 }
@@ -68,6 +69,7 @@
 
 .content {
   padding: 80px 0;
+  background: #ffffff;
 }
 
 .contentGrid {
@@ -85,7 +87,7 @@
 .mainContent h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 20px;
   margin-top: 40px;
 }
@@ -109,8 +111,8 @@
 }
 
 .featureItem {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 102, 255, 0.05);
   padding: 16px 20px;
   border-radius: var(--radius-sm);
   display: flex;
@@ -119,7 +121,7 @@
 }
 
 .checkmark {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: bold;
 }
 
@@ -144,7 +146,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--primary);
   font-weight: bold;
 }
 
@@ -156,8 +158,8 @@
 }
 
 .step {
-  background: var(--bg-glass-light);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 102, 255, 0.04);
   border-radius: var(--radius-sm);
   padding: 20px 16px;
   text-align: center;
@@ -169,7 +171,7 @@
   border-radius: 50%;
   background: var(--primary-glow);
   color: var(--primary);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(0, 102, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,6 +183,7 @@
 .step h4 {
   font-size: 0.95rem;
   margin-bottom: 6px;
+  color: var(--text-primary);
 }
 
 .step p {
@@ -196,10 +199,8 @@
 }
 
 .card {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 36px 30px;
   box-shadow: var(--shadow-md);
@@ -207,7 +208,7 @@
 
 .card h3 {
   font-size: 1.3rem;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
