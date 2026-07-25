@@ -6,7 +6,7 @@ import styles from '../../styles/ServiceDetail.module.css';
 
 export default function ServicePage({ service, subServices, serviceKey }) {
   const [selectedSubService, setSelectedSubService] = useState(null);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919004246792';
 
   if (!service) {
     return <div>Service not found</div>;
@@ -30,7 +30,7 @@ export default function ServicePage({ service, subServices, serviceKey }) {
               <p className={styles.tagline}>{service.tagline}</p>
               <p className={styles.description}>{service.description}</p>
               <div className={styles.heroCTA}>
-                <Link href="/booking" className="btn btn-primary">
+                <Link href={`/booking?service=${serviceKey}`} className="btn btn-primary">
                   📅 Book Consultation
                 </Link>
                 <a
@@ -39,7 +39,7 @@ export default function ServicePage({ service, subServices, serviceKey }) {
                   rel="noopener noreferrer"
                   className="btn btn-outline"
                 >
-                  💬 WhatsApp
+                  💬 WhatsApp Us
                 </a>
               </div>
             </div>
@@ -69,8 +69,8 @@ export default function ServicePage({ service, subServices, serviceKey }) {
       {subServices.length > 0 && (
         <section className={styles.subServicesSection}>
           <div className="container">
-            <h2>Our {service.name}</h2>
-            <p className={styles.sectionSubtitle}>Comprehensive solutions tailored to your specific needs</p>
+            <h2>Our {service.name} Details</h2>
+            <p className={styles.sectionSubtitle}>Comprehensive and custom solutions tailored to your organization</p>
 
             <div className={styles.subServicesGrid}>
               {subServices.map((subService) => (
@@ -101,23 +101,23 @@ export default function ServicePage({ service, subServices, serviceKey }) {
           <div className={styles.benefitsGrid}>
             <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>✓</div>
-              <h4>Expert Team</h4>
-              <p>15+ years of industry experience</p>
+              <h4>Expert Lead</h4>
+              <p>Direct guidance from founder Yasar Intakhab Khan</p>
             </div>
             <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>✓</div>
-              <h4>Custom Solutions</h4>
-              <p>Tailored to your specific needs</p>
+              <h4>Custom Architectures</h4>
+              <p>Designed precisely around your operational scale</p>
             </div>
             <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>✓</div>
-              <h4>Data-Driven</h4>
-              <p>AI/ML powered insights</p>
+              <h4>Data & AI Driven</h4>
+              <p>Enabling modern ML pipelines and analytics</p>
             </div>
             <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>✓</div>
-              <h4>Support</h4>
-              <p>Ongoing assistance and guidance</p>
+              <h4>Direct Support</h4>
+              <p>Ongoing post-delivery updates and revisions</p>
             </div>
           </div>
         </div>
@@ -127,10 +127,10 @@ export default function ServicePage({ service, subServices, serviceKey }) {
       <section className={styles.ctaSection}>
         <div className="container">
           <h2>Ready to Get Started?</h2>
-          <p>Let's discuss how {service.name.toLowerCase()} can transform your business</p>
+          <p>Let's plan how {service.name.toLowerCase()} can drive operational excellence in your organization.</p>
           <div className={styles.ctaButtons}>
-            <Link href="/booking" className="btn btn-primary">
-              Schedule Consultation
+            <Link href={`/booking?service=${serviceKey}`} className="btn btn-accent">
+              📅 Schedule Consultation
             </Link>
             <a href="tel:+919004246792" className="btn btn-outline">
               📞 Call +91 9004246792

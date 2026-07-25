@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { SERVICES_DATA } from '../lib/services-data';
 import styles from '../styles/Booking.module.css';
 
-const SERVICES = [
-  { id: 'sap-consulting', name: 'SAP Consulting', duration: '60 mins' },
-  { id: 'web-development', name: 'Web Development', duration: '90 mins' },
-  { id: 'business-consulting', name: 'Business Consulting', duration: '60 mins' },
-  { id: 'cloud-management', name: 'Cloud Management', duration: '60 mins' },
-  { id: 'data-analytics', name: 'Data & Analytics', duration: '60 mins' },
-  { id: 'inventory-management', name: 'Inventory Management', duration: '60 mins' },
-  { id: 'marketing-branding', name: 'Marketing & Branding', duration: '60 mins' },
-];
+// Dynamically generate services list from the single source of truth SERVICES_DATA
+const SERVICES = Object.entries(SERVICES_DATA).map(([key, val]) => ({
+  id: key,
+  name: val.name.replace(' Services', ''), // clean up the title for form options
+  duration: key.includes('consult') || key.includes('analysis') ? '60 mins' : '90 mins'
+}));
 
 const TIME_SLOTS = [
   '9:00 AM',
@@ -24,6 +23,7 @@ const TIME_SLOTS = [
 ];
 
 export default function BookingPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,6 +37,19 @@ export default function BookingPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Pre-fill service type if passed in query string (e.g. /booking?service=software-development)
+  useEffect(() => {
+    if (router.isReady && router.query.service) {
+      const serviceQuery = router.query.service;
+      if (SERVICES.some(s => s.id === serviceQuery)) {
+        setFormData(prev => ({
+          ...prev,
+          service: serviceQuery
+        }));
+      }
+    }
+  }, [router.isReady, router.query.service]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,7 +84,6 @@ export default function BookingPage() {
           time: '',
           message: '',
         });
-        setTimeout(() => setSubmitted(false), 5000);
       }
     } catch (error) {
       console.error('Booking error:', error);
@@ -81,13 +93,13 @@ export default function BookingPage() {
   };
 
   const selectedService = SERVICES.find((s) => s.id === formData.service);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-  const whatsappMessage = `Hi! I would like to book a consultation for ${selectedService?.name || 'your services'}. Here are my details:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nPreferred Date: ${formData.date}\nPreferred Time: ${formData.time}`;
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919004246792';
+  const whatsappMessage = `Hi Yasar! I would like to book a consultation for ${selectedService?.name || 'AllWorkss services'}. Here are my details:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nPreferred Date: ${formData.date}\nPreferred Time: ${formData.time}\nMessage: ${formData.message}`;
 
   return (
     <>
       <Head>
-        <title>Book Consultation - AllWorkss Consultancy</title>
+        <title>Book Consultation - AllWorkss</title>
         <meta name="description" content="Schedule a free consultation with our expert consultants." />
         <meta name="keywords" content="booking, consultation, schedule, appointment" />
       </Head>
@@ -98,52 +110,49 @@ export default function BookingPage() {
             {/* Left Side - Info */}
             <div className={styles.bookingInfo}>
               <h1>Book Your Consultation</h1>
-              <p>Schedule a free consultation with our expert consultants and discuss your business needs.</p>
+              <p>Schedule an appointment with our lead architect, Yasar Intakhab Khan, to analyze your tech stack, system requirements, or business roadmap.</p>
 
               <div className={styles.infoBox}>
-                <h3>Why Book With Us?</h3>
+                <h3>Why Consult With Us?</h3>
                 <ul>
                   <li>
-                    <span className={styles.icon}>✓</span> Free initial consultation
+                    <span className={styles.icon}>✓</span> Direct session with Owner & Founder Yasar Intakhab Khan
                   </li>
                   <li>
-                    <span className={styles.icon}>✓</span> Expert consultants with 15+ years experience
+                    <span className={styles.icon}>✓</span> Strategic architecture & AI/ML integration advice
                   </li>
                   <li>
-                    <span className={styles.icon}>✓</span> Flexible scheduling options
+                    <span className={styles.icon}>✓</span> Comprehensive project scoping & pricing clarity
                   </li>
                   <li>
-                    <span className={styles.icon}>✓</span> Personalized solutions
-                  </li>
-                  <li>
-                    <span className={styles.icon}>✓</span> Quick response time
+                    <span className={styles.icon}>✓</span> Clean roadmap for digital conversion & SAP execution
                   </li>
                 </ul>
               </div>
 
               <div className={styles.contactBox}>
-                <h4>Can't Wait?</h4>
-                <p>Contact us directly:</p>
-                <a href="tel:+919004246792" className="btn btn-primary">
-                  📞 Call Us
+                <h4>Need Immediate Help?</h4>
+                <p>Reach out directly via phone or WhatsApp for quick response times:</p>
+                <a href="tel:+919004246792" className="btn btn-outline" style={{ display: 'flex', width: '100%', marginBottom: '12px', justifyContent: 'center' }}>
+                  📞 Call +91 9004246792
                 </a>
                 <a
-                  href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=Hi!%20I%20would%20like%20to%20book%20a%20consultation.`}
+                  href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=Hi%20Yasar!%20I%20would%20like%20to%20book%20a%20consultation.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.whatsappBtn}
                 >
-                  💬 WhatsApp Us
+                  💬 WhatsApp Now
                 </a>
               </div>
 
               <div className={styles.availability}>
-                <h4>Hours of Operation</h4>
+                <h4>Business Hours</h4>
                 <p>
-                  <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM
+                  <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM (IST)
                 </p>
                 <p>
-                  <strong>Saturday:</strong> 10:00 AM - 4:00 PM
+                  <strong>Saturday:</strong> 10:00 AM - 4:00 PM (IST)
                 </p>
                 <p>
                   <strong>Sunday:</strong> Closed
@@ -156,11 +165,11 @@ export default function BookingPage() {
               {submitted ? (
                 <div className={styles.successMessage}>
                   <div className={styles.successIcon}>✓</div>
-                  <h3>Consultation Booked Successfully!</h3>
-                  <p>Thank you for booking with us. We've sent a confirmation email to your inbox.</p>
-                  <p>Our team will reach out to you shortly to confirm the appointment details.</p>
-                  <Link href="/" className="btn btn-primary">
-                    Back to Home
+                  <h3>Appointment Requested!</h3>
+                  <p>Thank you for choosing AllWorkss. We have received your booking details.</p>
+                  <p>Our founder Yasar Intakhab Khan will get in touch with you shortly to confirm the scheduled slot.</p>
+                  <Link href="/" className="btn btn-primary" style={{ marginTop: '24px' }}>
+                    Return Home
                   </Link>
                 </div>
               ) : (
@@ -174,7 +183,7 @@ export default function BookingPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Your full name"
+                      placeholder="e.g. John Doe"
                     />
                   </div>
 
@@ -187,7 +196,7 @@ export default function BookingPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="your@email.com"
+                      placeholder="e.g. john@company.com"
                     />
                   </div>
 
@@ -200,7 +209,7 @@ export default function BookingPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+91 XXXXX XXXXX"
+                      placeholder="e.g. +91 9004246792"
                     />
                   </div>
 
@@ -212,14 +221,14 @@ export default function BookingPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Your company name"
+                      placeholder="Your organization"
                     />
                   </div>
 
                   <div className={styles.formGroup}>
                     <label htmlFor="service">Service Type *</label>
                     <select name="service" id="service" value={formData.service} onChange={handleChange} required>
-                      <option value="">Select a service</option>
+                      <option value="">Choose a service to book</option>
                       {SERVICES.map((service) => (
                         <option key={service.id} value={service.id}>
                           {service.name} ({service.duration})
@@ -243,7 +252,7 @@ export default function BookingPage() {
                     <div className={styles.formGroup}>
                       <label htmlFor="time">Preferred Time *</label>
                       <select name="time" id="time" value={formData.time} onChange={handleChange} required>
-                        <option value="">Select time</option>
+                        <option value="">Select time slot</option>
                         {TIME_SLOTS.map((slot) => (
                           <option key={slot} value={slot}>
                             {slot}
@@ -254,33 +263,33 @@ export default function BookingPage() {
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label htmlFor="message">Additional Message</label>
+                    <label htmlFor="message">Message / Notes</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us more about your requirements..."
+                      placeholder="Tell Yasar about your project or consultation goal..."
                       rows="4"
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" disabled={loading}>
-                    {loading ? 'Booking...' : '📅 Confirm Booking'}
+                  <button type="submit" className="btn btn-accent btn-block" disabled={loading}>
+                    {loading ? 'Submitting...' : '📅 Schedule Appointment'}
                   </button>
 
-                  {selectedService && formData.date && formData.time && (
+                  {formData.name && formData.email && formData.phone && formData.service && formData.date && formData.time && (
                     <a
                       href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.whatsappSubmitBtn}
                     >
-                      💬 Send via WhatsApp
+                      💬 Quick Confirm via WhatsApp
                     </a>
                   )}
 
-                  <p className={styles.requiredNote}>* Required fields</p>
+                  <p className={styles.requiredNote}>* Fields marked with asterisks are required</p>
                 </form>
               )}
             </div>

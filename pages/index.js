@@ -19,12 +19,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>AllWorkss - Full Stack Development, SAP & Business Solutions</title>
-        <meta name="description" content="AllWorkss delivers full-stack development, SAP consulting, data analytics, and business solutions for startups and enterprises." />
-        <meta name="keywords" content="full stack development, SAP consulting, web development, data analytics, business intelligence, inventory management" />
+        <title>AllWorkss - Premium Cloud Solutions, SAP & AI/ML Consulting</title>
+        <meta name="description" content="AllWorkss delivers premium cloud architecture, SAP ERP implementation, custom software development, and AI/ML consulting led by Yasar Intakhab Khan." />
+        <meta name="keywords" content="full stack development, SAP consulting, web development, data analytics, business intelligence, inventory management, cloud architecture, AI/ML consultant" />
         <meta name="author" content="Yasar Intakhab Khan - AllWorkss" />
         <meta property="og:title" content="AllWorkss - Transform Your Business Digitally" />
-        <meta property="og:description" content="Expert solutions in development, consulting, and digital transformation." />
+        <meta property="og:description" content="Expert solutions in full stack development, SAP ERP consulting, cloud architecture, and AI/ML." />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -34,10 +34,10 @@ export default function Home() {
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
               <h1 className={styles.heroTitle}>
-                Your Partner in <span className={styles.highlight}>Digital Transformation</span>
+                High-Performance <span className={styles.highlight}>Digital Solutions</span> & Consultancy
               </h1>
               <p className={styles.heroSubtitle}>
-                AllWorkss transforms raw business data, strategy, and technology into scalable, intelligent solutions that reshape industries and uplift communities.
+                AllWorkss transforms raw business data, complex architecture, and AI models into highly scalable, intelligent solutions that power enterprise success.
               </p>
               <div className={styles.heroCTA}>
                 <Link href="/booking" className="btn btn-primary">
@@ -48,23 +48,23 @@ export default function Home() {
                 </a>
               </div>
               <div className={styles.stats}>
-                <div>
-                  <strong>50+</strong>
-                  <p>Projects Delivered</p>
+                <div className={styles.statsItem}>
+                  <strong className={styles.statsNumber}>50+</strong>
+                  <span className={styles.statsLabel}>Projects Delivered</span>
                 </div>
-                <div>
-                  <strong>15+</strong>
-                  <p>Years Experience</p>
+                <div className={styles.statsItem}>
+                  <strong className={styles.statsNumber}>15+</strong>
+                  <span className={styles.statsLabel}>Years Experience</span>
                 </div>
-                <div>
-                  <strong>100%</strong>
-                  <p>Success Rate</p>
+                <div className={styles.statsItem}>
+                  <strong className={styles.statsNumber}>100%</strong>
+                  <span className={styles.statsLabel}>Success Rate</span>
                 </div>
               </div>
             </div>
-            <div className={styles.heroImage}>
-              <div className={styles.illustrationBox}>
-                <span className={styles.emoji}>🚀</span>
+            <div className={styles.heroImageContainer}>
+              <div className={styles.heroGlobe}>
+                <span className={styles.heroGlobeIcon}>🚀</span>
               </div>
             </div>
           </div>
@@ -72,14 +72,18 @@ export default function Home() {
       </section>
 
       {/* About Founder */}
-      <section className={styles.founderSection}>
+      <section className={styles.founderSection} id="about">
         <div className="container">
           <div className={styles.founderContent}>
             <div className={styles.founderImage}>
               <div className={styles.profileCard}>
-                <div className={styles.placeholder}>👨‍💼</div>
-                <h3>Yasar Intakhab Khan</h3>
-                <p>Founder & Chief Strategist</p>
+                <div className={styles.avatarContainer}>👨‍💼</div>
+                <h3 className={styles.founderName}>Yasar Intakhab Khan</h3>
+                <p className={styles.founderTitle}>Founder & CEO</p>
+                <div className={styles.founderMeta}>
+                  <span>💼 SAP Business Consultant</span>
+                  <span>🎓 M.Sc. Data Science & IT</span>
+                </div>
               </div>
             </div>
             <div className={styles.founderText}>
@@ -92,13 +96,25 @@ export default function Home() {
               </p>
               <div className={styles.expertise}>
                 <h4>Core Expertise:</h4>
-                <ul>
-                  <li>Full Stack Development (Frontend, Backend, DevOps)</li>
-                  <li>Data Science & Machine Learning</li>
-                  <li>SAP & ERP Implementation</li>
-                  <li>Cloud Architecture (AWS, GCP)</li>
-                  <li>Business Intelligence & Analytics</li>
-                  <li>Strategic Business Consulting</li>
+                <ul className={styles.expertiseList}>
+                  <li className={styles.expertiseItem}>
+                    <span className={styles.expertiseIcon}>✓</span> Full Stack Development (Frontend, Backend, DevOps)
+                  </li>
+                  <li className={styles.expertiseItem}>
+                    <span className={styles.expertiseIcon}>✓</span> Data Science & Machine Learning Integration
+                  </li>
+                  <li className={styles.expertiseItem}>
+                    <span className={styles.expertiseIcon}>✓</span> SAP & ERP Business Processes
+                  </li>
+                  <li className={styles.expertiseItem}>
+                    <span className={styles.expertiseIcon}>✓</span> Cloud Infrastructure (AWS, GCP, Railway)
+                  </li>
+                  <li className={styles.expertiseItem}>
+                    <span className={styles.expertiseIcon}>✓</span> Business Intelligence & Big Data Analytics
+                  </li>
+                  <li className={styles.expertiseItem}>
+                    <span className={styles.expertiseIcon}>✓</span> Strategic Enterprise Consulting
+                  </li>
                 </ul>
               </div>
             </div>
@@ -107,39 +123,44 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="section" id="services" style={{ background: '#f8f9fa' }}>
+      <section className="section" id="services">
         <div className="container">
-          <h2 className="section-title">Our Comprehensive Services</h2>
+          <h2 className="section-title">Our Specialized Services</h2>
           <p className="section-subtitle">
-            From software development to strategic consulting—AllWorkss delivers end-to-end solutions
+            From modern cloud architectures to custom ERP implementations, we design robust software pipelines aligned to your business growth.
           </p>
 
           <div className={styles.servicesGrid}>
             {MAIN_SERVICES.map((service) => (
-              <Link href={service.link} key={service.id} className={styles.serviceCard}>
+              <div key={service.id} className={styles.serviceCard}>
                 <div className={styles.serviceIcon}>{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <div className={styles.serviceFeatures}>
+                <div className={styles.serviceHighlights}>
                   {service.features.slice(0, 3).map((feature, idx) => (
-                    <span key={idx}>✓ {feature}</span>
+                    <span key={idx} className={styles.highlightItem}>
+                      <span className={styles.checkIcon}>✓</span> {feature}
+                    </span>
                   ))}
                 </div>
                 <div className={styles.cardActions}>
-                  <button className="btn btn-primary" style={{ flex: 1 }}>
-                    Learn More
-                  </button>
+                  <Link href={`/booking?service=${service.id}`} className="btn btn-primary">
+                    Book Session
+                  </Link>
+                  <Link href={service.link} className="btn btn-outline" style={{ flexGrow: 0, padding: '10px 14px' }}>
+                    Detail
+                  </Link>
                   <a
                     href={`https://api.whatsapp.com/send/?phone=919004246792&text=${encodeURIComponent(service.whatsappMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.whatsappIcon}
-                    onClick={(e) => e.preventDefault()}
+                    title="Send message on WhatsApp"
                   >
                     💬
                   </a>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -149,36 +170,37 @@ export default function Home() {
       <section className={styles.whyChooseSection}>
         <div className="container">
           <h2 className="section-title">Why Choose AllWorkss?</h2>
+          <p className="section-subtitle">We merge cutting-edge technology stacks with real-world enterprise business vision.</p>
           <div className={styles.benefitsGrid}>
-            <div className={styles.benefit}>
+            <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>🎯</div>
               <h3>Strategic Focus</h3>
-              <p>Every solution aligned with your business goals and growth trajectory</p>
+              <p>Every line of code and structural deployment is aligned with your business roadmap and ROI.</p>
             </div>
-            <div className={styles.benefit}>
+            <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>🛠️</div>
               <h3>Full-Stack Expertise</h3>
-              <p>Complete end-to-end solutions from concept to deployment and beyond</p>
+              <p>Complete end-to-end capabilities spanning frontend engineering, robust APIs, and cloud deployments.</p>
             </div>
-            <div className={styles.benefit}>
+            <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>📊</div>
-              <h3>Data-Driven</h3>
-              <p>Decisions backed by insights, analytics, and proven methodologies</p>
+              <h3>Data-Driven Solutions</h3>
+              <p>Decisions backed by state-of-the-art data collection, predictive ML models, and analytics dashboards.</p>
             </div>
-            <div className={styles.benefit}>
+            <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>🚀</div>
               <h3>Innovation First</h3>
-              <p>Cutting-edge technologies and forward-thinking approaches</p>
+              <p>Continuous integration of AI and smart features to keep you ahead of the digital curve.</p>
             </div>
-            <div className={styles.benefit}>
+            <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>💼</div>
-              <h3>Industry Experience</h3>
-              <p>15+ years serving startups, SMEs, and enterprises</p>
+              <h3>15+ Years Experience</h3>
+              <p>Proven execution across complex custom systems, corporate platforms, and cloud integrations.</p>
             </div>
-            <div className={styles.benefit}>
+            <div className={styles.benefitCard}>
               <div className={styles.benefitIcon}>🤝</div>
               <h3>Partnership Mindset</h3>
-              <p>We succeed when your business succeeds</p>
+              <p>We work as your remote CTO/developer partner, dedicating our resources to your sustained success.</p>
             </div>
           </div>
         </div>
@@ -189,10 +211,10 @@ export default function Home() {
         <div className="container">
           <div className={styles.ctaContent}>
             <h2>Ready to Transform Your Business?</h2>
-            <p>Let's discuss how AllWorkss can drive your success</p>
+            <p>Schedule a consult directly with founder Yasar Intakhab Khan to outline your technical or operational scope.</p>
             <div className={styles.ctaButtons}>
-              <Link href="/booking" className="btn btn-primary">
-                Book Free Consultation
+              <Link href="/booking" className="btn btn-accent">
+                📅 Book Free Consultation
               </Link>
               <a href="tel:+919004246792" className="btn btn-outline">
                 📞 Call +91 9004246792

@@ -5,7 +5,7 @@ import { SERVICES_DATA, getServiceByKey, getAllSubServices } from '../../../lib/
 import styles from '../../../styles/SubServiceDetail.module.css';
 
 export default function SubServicePage({ service, subService, serviceKey }) {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919004246792';
 
   if (!service || !subService) {
     return <div>Service not found</div>;
@@ -21,11 +21,11 @@ export default function SubServicePage({ service, subService, serviceKey }) {
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
         <div className="container">
-          <Link href="/services">Services</Link>
+          <Link href="/">Home</Link>
           <span>/</span>
           <Link href={`/services/${serviceKey}`}>{service.name}</Link>
           <span>/</span>
-          <span>{subService.name}</span>
+          <span className={styles.activeBreadcrumb}>{subService.name}</span>
         </div>
       </div>
 
@@ -41,116 +41,73 @@ export default function SubServicePage({ service, subService, serviceKey }) {
       {/* Content */}
       <section className={styles.content}>
         <div className="container">
-          <div className={styles.mainContent}>
-            <h2>Overview</h2>
-            <p>{subService.description}</p>
+          <div className={styles.contentGrid}>
+            <div className={styles.mainContent}>
+              <h2>Overview</h2>
+              <p>{subService.description}</p>
 
-            <h2 style={{ marginTop: '40px' }}>Key Features & Benefits</h2>
-            <div className={styles.featuresList}>
-              {subService.features.map((feature, idx) => (
-                <div key={idx} className={styles.featureItem}>
-                  <span className={styles.checkmark}>✓</span>
-                  <span>{feature}</span>
+              <h2 style={{ marginTop: '40px' }}>Key Features & Offerings</h2>
+              <div className={styles.featuresList}>
+                {subService.features.map((feature, idx) => (
+                  <div key={idx} className={styles.featureItem}>
+                    <span className={styles.checkmark}>✓</span>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <h2 style={{ marginTop: '40px' }}>Our Delivery Guarantee</h2>
+              <ul className={styles.benefitsList}>
+                <li>Expert execution directly supervised by founder Yasar Intakhab Khan</li>
+                <li>Tailored and scalable architectures suited for long-term growth</li>
+                <li>Comprehensive QA checks and post-deployment reviews</li>
+                <li>Transparent timeline progression and milestone alerts</li>
+                <li>Flexible and competitive pricing plans</li>
+              </ul>
+
+              <h2 style={{ marginTop: '40px' }}>Process Workflow</h2>
+              <div className={styles.processSteps}>
+                <div className={styles.step}>
+                  <div className={styles.stepNumber}>1</div>
+                  <h4>Assessment</h4>
+                  <p>Understand goals</p>
                 </div>
-              ))}
-            </div>
-
-            <h2 style={{ marginTop: '40px' }}>Why Choose This Service?</h2>
-            <ul>
-              <li>Expert implementation and support</li>
-              <li>Customized to your specific needs</li>
-              <li>Proven track record of success</li>
-              <li>Ongoing optimization and improvement</li>
-              <li>Competitive pricing and flexible terms</li>
-            </ul>
-
-            <h2 style={{ marginTop: '40px' }}>Implementation Process</h2>
-            <div className={styles.processSteps}>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>1</div>
-                <h4>Assessment</h4>
-                <p>Analyze your requirements</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>2</div>
-                <h4>Planning</h4>
-                <p>Create implementation plan</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>3</div>
-                <h4>Execution</h4>
-                <p>Deploy the solution</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>4</div>
-                <h4>Support</h4>
-                <p>Ongoing maintenance</p>
+                <div className={styles.step}>
+                  <div className={styles.stepNumber}>2</div>
+                  <h4>Planning</h4>
+                  <p>Design blueprint</p>
+                </div>
+                <div className={styles.step}>
+                  <div className={styles.stepNumber}>3</div>
+                  <h4>Execution</h4>
+                  <p>Deliver cleanly</p>
+                </div>
+                <div className={styles.step}>
+                  <div className={styles.stepNumber}>4</div>
+                  <h4>Support</h4>
+                  <p>Maintain stack</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className={styles.sidebar}>
-            <div className={styles.card}>
-              <h3>Ready to Implement?</h3>
-              <p>Get expert guidance on this service</p>
-              <Link href="/booking" className="btn btn-primary">
-                Book Now
-              </Link>
-              <a
-                href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(subService.whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline"
-                style={{ marginTop: '10px' }}
-              >
-                💬 WhatsApp
-              </a>
+            <div className={styles.sidebar}>
+              <div className={styles.card}>
+                <h3>Ready to Launch?</h3>
+                <p>Schedule a consulting call to plan out the scope of {subService.name.toLowerCase()}.</p>
+                <Link href={`/booking?service=${serviceKey}`} className="btn btn-primary btn-block" style={{ marginBottom: '12px' }}>
+                  📅 Book Consultation
+                </Link>
+                <a
+                  href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(subService.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline btn-block"
+                  style={{ display: 'flex', justifyContent: 'center' }}
+                >
+                  💬 WhatsApp Discuss
+                </a>
+              </div>
             </div>
-
-            <div className={styles.card}>
-              <h3>Quick Facts</h3>
-              <ul>
-                <li>✓ Expert Team</li>
-                <li>✓ Proven Solution</li>
-                <li>✓ Fast Implementation</li>
-                <li>✓ 24/7 Support</li>
-                <li>✓ Custom Approach</li>
-              </ul>
-            </div>
-
-            <div className={styles.card}>
-              <h3>Benefits</h3>
-              <ul>
-                <li>Improved Efficiency</li>
-                <li>Cost Reduction</li>
-                <li>Better Insights</li>
-                <li>Scalable Growth</li>
-                <li>Competitive Edge</li>
-              </ul>
-            </div>
-
-            <div className={styles.card}>
-              <h3>Contact Us</h3>
-              <p>📞 +91 9004246792</p>
-              <p>📧 theallworkss@gmail.com</p>
-              <p>💬 WhatsApp Available</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className={styles.ctaSection}>
-        <div className="container">
-          <h2>Transform Your Business Today</h2>
-          <p>Schedule a free consultation and discover how {subService.name.toLowerCase()} can help</p>
-          <div className={styles.ctaButtons}>
-            <Link href="/booking" className="btn btn-primary">
-              Schedule Consultation
-            </Link>
-            <a href="tel:+919004246792" className="btn btn-outline">
-              📞 Call Now
-            </a>
           </div>
         </div>
       </section>
@@ -181,15 +138,14 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const paths = [];
 
-  Object.entries(SERVICES_DATA).forEach(([serviceKey, service]) => {
-    service.subServices.forEach((subService) => {
-      paths.push({
-        params: {
-          key: serviceKey,
-          subId: subService.id
-        }
+  Object.entries(SERVICES_DATA).forEach(([key, service]) => {
+    if (service.subServices) {
+      service.subServices.forEach((subService) => {
+        paths.push({
+          params: { key, subId: subService.id }
+        });
       });
-    });
+    }
   });
 
   return {

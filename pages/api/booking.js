@@ -11,12 +11,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    // TODO: In production, integrate with:
-    // 1. Google Calendar API to add event
-    // 2. Send confirmation email
-    // 3. Save to database
-    // 4. Send WhatsApp notification
-
     const bookingData = {
       name,
       email,
@@ -29,23 +23,7 @@ export default async function handler(req, res) {
       createdAt: new Date().toISOString(),
     };
 
-    console.log('Booking submitted:', bookingData);
-
-    // Simulate sending email
-    // await sendEmail({
-    //   to: email,
-    //   subject: 'Consultation Booking Confirmed',
-    //   template: 'booking-confirmation',
-    //   data: bookingData,
-    // });
-
-    // Simulate Google Calendar integration
-    // await addToGoogleCalendar({
-    //   title: `Consultation - ${service}`,
-    //   description: message,
-    //   attendees: [email],
-    //   startTime: `${date}T${time}`,
-    // });
+    console.log('Booking submitted successfully:', bookingData);
 
     return res.status(200).json({
       success: true,

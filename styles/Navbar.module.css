@@ -1,65 +1,67 @@
 .navbar {
-  background: white;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-glass);
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
 }
 
 .navContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
-  gap: 40px;
+  padding: 16px 0;
+  gap: 30px;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary);
   display: flex;
   flex-direction: column;
-  gap: 0;
-  transition: all 0.3s ease;
-}
-
-.logo:hover {
-  color: var(--primary-dark);
+  line-height: 1;
 }
 
 .logoText {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .logoSubtext {
   font-size: 0.65rem;
-  color: var(--secondary);
+  color: var(--accent);
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
 .navMenu {
   display: flex;
   list-style: none;
-  gap: 30px;
-  flex: 1;
-  justify-content: center;
+  gap: 32px;
+  align-items: center;
 }
 
 .navMenu li a {
-  color: var(--text);
+  color: var(--text-secondary);
   font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
   position: relative;
+  padding: 6px 0;
 }
 
 .navMenu li a::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
@@ -68,77 +70,81 @@
 }
 
 .navMenu li a:hover {
-  color: var(--primary);
+  color: #ffffff;
 }
 
 .navMenu li a:hover::after {
   width: 100%;
 }
 
+.navCTA {
+  display: flex;
+  align-items: center;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 5px;
+  gap: 6px;
   background: none;
+  border: none;
+  outline: none;
+  padding: 4px;
 }
 
 .hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: var(--text);
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
-  .navContent {
-    gap: 20px;
-  }
-
   .hamburger {
     display: flex;
   }
 
   .navMenu {
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     right: 0;
-    background: white;
+    background: var(--bg-glass);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-glass);
     flex-direction: column;
     gap: 20px;
-    padding: 30px 20px;
-    box-shadow: var(--shadow);
-    border-radius: 0 0 12px 12px;
+    padding: 30px 24px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    align-items: flex-start;
   }
 
   .navMenu.active {
-    max-height: 500px;
+    max-height: 400px;
+  }
+
+  .navMenu li {
+    width: 100%;
   }
 
   .navMenu li a {
     display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .navMenu li a::after {
     display: none;
   }
 
-  .logo {
-    flex-direction: row;
-    gap: 5px;
-    font-size: 1.2rem;
-  }
-
-  .logoText {
-    font-size: 1.1rem;
-  }
-
-  .logoSubtext {
-    font-size: 0.6rem;
+  .navCTA {
+    display: none; /* Hide top right CTA on mobile, keep it in page or menu */
   }
 }

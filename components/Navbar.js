@@ -17,33 +17,36 @@ export default function Navbar() {
           <button
             className={styles.hamburger}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span style={{ transform: mobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}></span>
+            <span style={{ opacity: mobileMenuOpen ? 0 : 1 }}></span>
+            <span style={{ transform: mobileMenuOpen ? 'rotate(-45deg) translate(6px, -7px)' : 'none' }}></span>
           </button>
 
           <ul className={`${styles.navMenu} ${mobileMenuOpen ? styles.active : ''}`}>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
             </li>
             <li>
-              <Link href="#services">Services</Link>
+              <Link href="/#services" onClick={() => setMobileMenuOpen(false)}>Services</Link>
             </li>
             <li>
-              <Link href="#about">About</Link>
+              <Link href="/#about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
             </li>
             <li>
-              <Link href="/booking">Book Consultation</Link>
+              <Link href="/booking" onClick={() => setMobileMenuOpen(false)}>Book Appointment</Link>
             </li>
             <li>
-              <Link href="#contact">Contact</Link>
+              <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             </li>
           </ul>
 
-          <Link href="/booking" className="btn btn-primary">
-            Get Started
-          </Link>
+          <div className={styles.navCTA}>
+            <Link href="/booking" className="btn btn-primary">
+              📅 Book Consultation
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
