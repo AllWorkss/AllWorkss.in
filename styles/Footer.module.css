@@ -85,7 +85,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--bg-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
