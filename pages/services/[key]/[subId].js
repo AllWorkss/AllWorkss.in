@@ -14,8 +14,25 @@ export default function SubServicePage({ service, subService, serviceKey }) {
   return (
     <>
       <Head>
-        <title>{subService.name} - {service.name} - AllWorkss</title>
+        <title>{subService.name} - {service.name} | YARSA AllWorkss (OPC) Pvt Ltd</title>
         <meta name="description" content={subService.description} />
+        <meta name="keywords" content={`${subService.name}, ${service.name}, consulting, YARSA ALLWORKSS, OPC PRIVATE LIMITED, Thane`} />
+        <link rel="canonical" href={`https://allworkss.in/services/${serviceKey}/${subService.id}`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://allworkss.in/services/${serviceKey}/${subService.id}`} />
+        <meta property="og:title" content={`${subService.name} - AllWorkss Consultancy`} />
+        <meta property="og:description" content={subService.description} />
+        <meta property="og:image" content="https://allworkss.in/logo.png" />
+        <meta property="og:site_name" content="YARSA AllWorkss (OPC) Private Limited" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://allworkss.in/services/${serviceKey}/${subService.id}`} />
+        <meta property="twitter:title" content={`${subService.name} - AllWorkss`} />
+        <meta property="twitter:description" content={subService.description} />
+        <meta property="twitter:image" content="https://allworkss.in/logo.png" />
       </Head>
 
       {/* Breadcrumb */}

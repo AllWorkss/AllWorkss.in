@@ -35,13 +35,26 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>AllWorkss - Premium Cloud Solutions, SAP & AI/ML Consulting</title>
-        <meta name="description" content="AllWorkss delivers premium cloud architecture, SAP ERP implementation, custom software development, and AI/ML consulting led by Yasar Intakhab Khan." />
-        <meta name="keywords" content="full stack development, SAP consulting, web development, data analytics, business intelligence, inventory management, cloud architecture, AI/ML consultant" />
+        <title>YARSA AllWorkss (OPC) Pvt Ltd - Premium Cloud Solutions, SAP & AI/ML Consulting</title>
+        <meta name="description" content="YARSA AllWorkss (OPC) Private Limited delivers premium cloud architecture, SAP ERP implementation, custom software development, and AI/ML consulting led by Yasar Intakhab Khan." />
+        <meta name="keywords" content="YARSA ALLWORKSS, OPC PRIVATE LIMITED, full stack development, SAP consulting, web development, data analytics, business intelligence, cloud architecture, AI consultant, Thane Maharashtra" />
         <meta name="author" content="Yasar Intakhab Khan - AllWorkss" />
-        <meta property="og:title" content="AllWorkss - Transform Your Business Digitally" />
-        <meta property="og:description" content="Expert solutions in full stack development, SAP ERP consulting, cloud architecture, and AI/ML." />
+        <link rel="canonical" href="https://allworkss.in/" />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://allworkss.in/" />
+        <meta property="og:title" content="YARSA AllWorkss - Transform Your Business Digitally" />
+        <meta property="og:description" content="Expert solutions in full stack development, SAP ERP consulting, cloud architecture, and AI/ML by YARSA AllWorkss (OPC) Private Limited." />
+        <meta property="og:image" content="https://allworkss.in/logo.png" />
+        <meta property="og:site_name" content="AllWorkss Consultancy" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://allworkss.in/" />
+        <meta property="twitter:title" content="YARSA AllWorkss - Transform Your Business Digitally" />
+        <meta property="twitter:description" content="Expert solutions in full stack development, SAP ERP consulting, cloud architecture, and AI/ML." />
+        <meta property="twitter:image" content="https://allworkss.in/logo.png" />
       </Head>
 
       {/* Hero Section */}

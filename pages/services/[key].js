@@ -15,9 +15,25 @@ export default function ServicePage({ service, subServices, serviceKey }) {
   return (
     <>
       <Head>
-        <title>{service.name} - AllWorkss</title>
+        <title>{service.name} - YARSA AllWorkss (OPC) Pvt Ltd</title>
         <meta name="description" content={service.description} />
-        <meta name="keywords" content={`${service.name}, consulting, services`} />
+        <meta name="keywords" content={`${service.name}, consulting, services, YARSA ALLWORKSS, OPC PRIVATE LIMITED, Thane, Maharashtra`} />
+        <link rel="canonical" href={`https://allworkss.in/services/${serviceKey}`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://allworkss.in/services/${serviceKey}`} />
+        <meta property="og:title" content={`${service.name} - AllWorkss Consultancy`} />
+        <meta property="og:description" content={service.description} />
+        <meta property="og:image" content="https://allworkss.in/logo.png" />
+        <meta property="og:site_name" content="YARSA AllWorkss (OPC) Private Limited" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://allworkss.in/services/${serviceKey}`} />
+        <meta property="twitter:title" content={`${service.name} - AllWorkss`} />
+        <meta property="twitter:description" content={service.description} />
+        <meta property="twitter:image" content="https://allworkss.in/logo.png" />
       </Head>
 
       {/* Hero Section */}

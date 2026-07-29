@@ -99,9 +99,25 @@ export default function BookingPage() {
   return (
     <>
       <Head>
-        <title>Book Consultation - AllWorkss</title>
-        <meta name="description" content="Schedule a free consultation with our expert consultants." />
-        <meta name="keywords" content="booking, consultation, schedule, appointment" />
+        <title>Book Consultation - YARSA AllWorkss (OPC) Pvt Ltd</title>
+        <meta name="description" content="Schedule a free consultation with Yasar Intakhab Khan at YARSA AllWorkss (OPC) Private Limited for expert cloud, SAP, and AI/ML consulting." />
+        <meta name="keywords" content="booking, consultation, schedule, appointment, YARSA ALLWORKSS, OPC PRIVATE LIMITED, Thane" />
+        <link rel="canonical" href="https://allworkss.in/booking" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://allworkss.in/booking" />
+        <meta property="og:title" content="Book Consultation - AllWorkss Consultancy" />
+        <meta property="og:description" content="Schedule a free consultation with our expert consultants at YARSA AllWorkss." />
+        <meta property="og:image" content="https://allworkss.in/logo.png" />
+        <meta property="og:site_name" content="YARSA AllWorkss (OPC) Private Limited" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://allworkss.in/booking" />
+        <meta property="twitter:title" content="Book Consultation - AllWorkss" />
+        <meta property="twitter:description" content="Schedule a free consultation with our expert consultants." />
+        <meta property="twitter:image" content="https://allworkss.in/logo.png" />
       </Head>
 
       <section className={styles.bookingSection}>
