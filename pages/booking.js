@@ -137,7 +137,7 @@ export default function BookingPage() {
                   📞 Call +91 9004246792
                 </a>
                 <a
-                  href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=Hi%20Yasar!%20I%20would%20like%20to%20book%20a%20consultation.`}
+                  href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(selectedService ? `Hi Yasar! I would like to book a consultation for ${selectedService.name}.` : 'Hi Yasar! I would like to book a consultation.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.whatsappBtn}
