@@ -1,8 +1,24 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { SERVICES_DATA } from '../lib/services-data';
 import styles from '../styles/Home.module.css';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+};
+
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+};
 
 const MAIN_SERVICES = Object.entries(SERVICES_DATA).map(([key, service]) => ({
   id: key,
@@ -32,22 +48,27 @@ export default function Home() {
       <section className={styles.hero}>
         <div className="container">
           <div className={styles.heroContent}>
-            <div className={styles.heroText}>
-              <h1 className={styles.heroTitle}>
+            <motion.div 
+              className={styles.heroText}
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              <motion.h1 className={styles.heroTitle} variants={fadeInUp}>
                 High-Performance <span className={styles.highlight}>Digital Solutions</span> & Consultancy
-              </h1>
-              <p className={styles.heroSubtitle}>
+              </motion.h1>
+              <motion.p className={styles.heroSubtitle} variants={fadeInUp}>
                 AllWorkss transforms raw business data, complex architecture, and AI models into highly scalable, intelligent solutions that power enterprise success.
-              </p>
-              <div className={styles.heroCTA}>
+              </motion.p>
+              <motion.div className={styles.heroCTA} variants={fadeInUp}>
                 <Link href="/booking" className="btn btn-primary">
                   📅 Schedule Consultation
                 </Link>
                 <a href="#services" className="btn btn-outline">
                   Explore Services →
                 </a>
-              </div>
-              <div className={styles.stats}>
+              </motion.div>
+              <motion.div className={styles.stats} variants={fadeInUp}>
                 <div className={styles.statsItem}>
                   <strong className={styles.statsNumber}>50+</strong>
                   <span className={styles.statsLabel}>Projects Delivered</span>
@@ -60,13 +81,18 @@ export default function Home() {
                   <strong className={styles.statsNumber}>100%</strong>
                   <span className={styles.statsLabel}>Success Rate</span>
                 </div>
-              </div>
-            </div>
-            <div className={styles.heroImageContainer}>
+              </motion.div>
+            </motion.div>
+            <motion.div 
+              className={styles.heroImageContainer}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <div className={styles.heroGlobe}>
                 <span className={styles.heroGlobeIcon}>🚀</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -130,9 +156,15 @@ export default function Home() {
             From modern cloud architectures to custom ERP implementations, we design robust software pipelines aligned to your business growth.
           </p>
 
-          <div className={styles.servicesGrid}>
+          <motion.div 
+            className={styles.servicesGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
             {MAIN_SERVICES.map((service) => (
-              <div key={service.id} className={styles.serviceCard}>
+              <motion.div key={service.id} className={styles.serviceCard} variants={fadeInUp}>
                 <div className={styles.serviceIcon}>{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
@@ -160,9 +192,9 @@ export default function Home() {
                     💬
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -171,38 +203,44 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title">Why Choose AllWorkss?</h2>
           <p className="section-subtitle">We merge cutting-edge technology stacks with real-world enterprise business vision.</p>
-          <div className={styles.benefitsGrid}>
-            <div className={styles.benefitCard}>
+          <motion.div 
+            className={styles.benefitsGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <motion.div className={styles.benefitCard} variants={scaleUp}>
               <div className={styles.benefitIcon}>🎯</div>
               <h3>Strategic Focus</h3>
               <p>Every line of code and structural deployment is aligned with your business roadmap and ROI.</p>
-            </div>
-            <div className={styles.benefitCard}>
+            </motion.div>
+            <motion.div className={styles.benefitCard} variants={scaleUp}>
               <div className={styles.benefitIcon}>🛠️</div>
               <h3>Full-Stack Expertise</h3>
               <p>Complete end-to-end capabilities spanning frontend engineering, robust APIs, and cloud deployments.</p>
-            </div>
-            <div className={styles.benefitCard}>
+            </motion.div>
+            <motion.div className={styles.benefitCard} variants={scaleUp}>
               <div className={styles.benefitIcon}>📊</div>
               <h3>Data-Driven Solutions</h3>
               <p>Decisions backed by state-of-the-art data collection, predictive ML models, and analytics dashboards.</p>
-            </div>
-            <div className={styles.benefitCard}>
+            </motion.div>
+            <motion.div className={styles.benefitCard} variants={scaleUp}>
               <div className={styles.benefitIcon}>🚀</div>
               <h3>Innovation First</h3>
               <p>Continuous integration of AI and smart features to keep you ahead of the digital curve.</p>
-            </div>
-            <div className={styles.benefitCard}>
+            </motion.div>
+            <motion.div className={styles.benefitCard} variants={scaleUp}>
               <div className={styles.benefitIcon}>💼</div>
               <h3>15+ Years Experience</h3>
               <p>Proven execution across complex custom systems, corporate platforms, and cloud integrations.</p>
-            </div>
-            <div className={styles.benefitCard}>
+            </motion.div>
+            <motion.div className={styles.benefitCard} variants={scaleUp}>
               <div className={styles.benefitIcon}>🤝</div>
               <h3>Partnership Mindset</h3>
               <p>We work as your remote CTO/developer partner, dedicating our resources to your sustained success.</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
