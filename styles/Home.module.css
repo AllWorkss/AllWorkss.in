@@ -115,12 +115,14 @@
   animation: float 6s ease-in-out infinite;
 }
 
-.heroGlobeIcon {
-  font-size: 6rem;
+.heroGlobeImage {
+  width: 160px;
+  height: auto;
   transition: transform 0.5s ease;
+  filter: drop-shadow(0 0 25px rgba(0, 102, 255, 0.4));
 }
 
-.heroGlobe:hover .heroGlobeIcon {
+.heroGlobe:hover .heroGlobeImage {
   transform: scale(1.1) rotate(5deg);
 }
 

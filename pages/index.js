@@ -88,9 +88,8 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-            >
               <div className={styles.heroGlobe}>
-                <span className={styles.heroGlobeIcon}>🚀</span>
+                <img src="/logo.png" alt="AllWorkss Logo" className={styles.heroGlobeImage} />
               </div>
             </motion.div>
           </div>
