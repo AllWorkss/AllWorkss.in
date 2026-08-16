@@ -35,6 +35,9 @@ export default function Navbar() {
               <Link href="/#services" onClick={() => setMobileMenuOpen(false)}>Services</Link>
             </li>
             <li>
+              <Link href="/portfolio" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
+            </li>
+            <li>
               <Link href="/#about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
             </li>
             <li>

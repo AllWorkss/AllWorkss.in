@@ -77,9 +77,9 @@ export default function Home() {
                 <Link href="/booking" className="btn btn-primary">
                   📅 Schedule Consultation
                 </Link>
-                <a href="#services" className="btn btn-outline">
-                  Explore Services →
-                </a>
+                <Link href="/portfolio" className="btn btn-outline">
+                  View Portfolio →
+                </Link>
               </motion.div>
               <motion.div className={styles.stats} variants={fadeInUp}>
                 <div className={styles.statsItem}>
@@ -101,6 +101,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <div className={styles.heroGlobe}>
                 <img src="/logo.png" alt="AllWorkss Logo" className={styles.heroGlobeImage} />
               </div>
@@ -253,6 +254,19 @@ export default function Home() {
               <p>We work as your remote CTO/developer partner, dedicating our resources to your sustained success.</p>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Portfolio Teaser */}
+      <section className="section" style={{ backgroundColor: 'rgba(37, 99, 235, 0.05)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2 className="section-title">Discover Our Cloud Infrastructure & Software Portfolio</h2>
+          <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+            We don't just consult; we build. Explore our ecosystem of production-ready SaaS platforms, AI-driven intelligence suites, and scalable microservices deployed on Google Cloud.
+          </p>
+          <Link href="/portfolio" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
+            🚀 View Enterprise Portfolio
+          </Link>
         </div>
       </section>
 
