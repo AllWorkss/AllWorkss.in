@@ -520,3 +520,20 @@
     font-size: 2rem;
   }
 }
+
+/* Portfolio Teaser Section */
+.portfolioTeaserSection {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.04) 0%, transparent 70%),
+              var(--bg-secondary);
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+
+.portfolioTeaserContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+

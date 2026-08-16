@@ -258,15 +258,17 @@ export default function Home() {
       </section>
 
       {/* Portfolio Teaser */}
-      <section className="section" style={{ backgroundColor: 'rgba(37, 99, 235, 0.05)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h2 className="section-title">Discover Our Cloud Infrastructure & Software Portfolio</h2>
-          <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
-            We don't just consult; we build. Explore our ecosystem of production-ready SaaS platforms, AI-driven intelligence suites, and scalable microservices deployed on Google Cloud.
-          </p>
-          <Link href="/portfolio" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
-            🚀 View Enterprise Portfolio
-          </Link>
+      <section className={styles.portfolioTeaserSection}>
+        <div className="container">
+          <div className={styles.portfolioTeaserContent}>
+            <h2 className="section-title">Discover Our Cloud Infrastructure & Software Portfolio</h2>
+            <p className="section-subtitle">
+              We don't just consult; we build. Explore our ecosystem of production-ready SaaS platforms, AI-driven intelligence suites, and scalable microservices deployed on Google Cloud.
+            </p>
+            <Link href="/portfolio" className="btn btn-accent" style={{ padding: '14px 32px', fontSize: '1.05rem' }}>
+              🚀 Explore Enterprise Portfolio
+            </Link>
+          </div>
         </div>
       </section>
 
