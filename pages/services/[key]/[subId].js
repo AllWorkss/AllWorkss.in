@@ -1,165 +1,169 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { SERVICES_DATA, getServiceByKey, getAllSubServices } from '../../../lib/services-data';
-import styles from '../../../styles/SubServiceDetail.module.css';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
+import { SERVICES_DATA } from '../../../lib/services-data';
 
 export default function SubServicePage({ service, subService, serviceKey }) {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919004246792';
-
   if (!service || !subService) {
-    return <div>Service not found</div>;
+    return (
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center font-sans">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">Service Page Not Found</h1>
+          <Link href="/" className="text-blue-400 hover:underline mt-4 inline-block">Return Home</Link>
+        </div>
+      </div>
+    );
   }
+
+  const pageTitle = subService.title || `${subService.h1 || subService.name} in Thane & Mumbai | Allworkss`;
+  const pageH1 = subService.h1 || subService.name;
+  const canonicalUrl = `https://allworkss.in/services/${serviceKey}/${subService.id}`;
+
+  const schemaGraph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${canonicalUrl}#service`,
+        "name": pageH1,
+        "serviceType": service.name,
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Allworkss Consultancy & Digital Solutions",
+          "telephone": "+91-9967376681",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Thane",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          }
+        },
+        "description": subService.description,
+        "url": canonicalUrl
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://allworkss.in/" },
+          { "@type": "ListItem", "position": 2, "name": service.name, "item": `https://allworkss.in/services/${serviceKey}` },
+          { "@type": "ListItem", "position": 3, "name": pageH1, "item": canonicalUrl }
+        ]
+      }
+    ]
+  };
 
   return (
     <>
       <Head>
-        <title>{subService.name} - {service.name} | YARSA AllWorkss (OPC) Pvt Ltd</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={subService.description} />
-        <meta name="keywords" content={`${subService.name}, ${service.name}, consulting, YARSA ALLWORKSS, OPC PRIVATE LIMITED, Thane`} />
-        <link rel="canonical" href={`https://allworkss.in/services/${serviceKey}/${subService.id}`} />
+        <meta name="keywords" content={`${subService.name}, ${service.name}, Thane SEO, Mumbai Digital Agency, Yasar Intakhab Khan, Allworkss`} />
+        <link rel="canonical" href={canonicalUrl} />
         
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://allworkss.in/services/${serviceKey}/${subService.id}`} />
-        <meta property="og:title" content={`${subService.name} - AllWorkss Consultancy`} />
-        <meta property="og:description" content={subService.description} />
-        <meta property="og:image" content="https://allworkss.in/logo.png" />
-        <meta property="og:site_name" content="YARSA AllWorkss (OPC) Private Limited" />
+        {/* Geo Targeting */}
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Thane, Mumbai Metropolitan Region" />
+        <meta name="geo.position" content="19.2183;72.9781" />
+        <meta name="ICBM" content="19.2183, 72.9781" />
 
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://allworkss.in/services/${serviceKey}/${subService.id}`} />
-        <meta property="twitter:title" content={`${subService.name} - AllWorkss`} />
-        <meta property="twitter:description" content={subService.description} />
-        <meta property="twitter:image" content="https://allworkss.in/logo.png" />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={subService.description} />
+        <meta property="og:image" content="https://allworkss.in/static/images/og-allworkss-preview.webp" />
+        <meta property="og:site_name" content="Allworkss Digital Solutions" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+        />
       </Head>
 
-      {/* Breadcrumb */}
-      <div className={styles.breadcrumb}>
-        <div className="container">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <Link href={`/services/${serviceKey}`}>{service.name}</Link>
-          <span>/</span>
-          <span className={styles.activeBreadcrumb}>{subService.name}</span>
-        </div>
-      </div>
+      <div className="min-h-screen bg-slate-950 text-white font-sans flex flex-col">
+        <Navbar />
 
-      {/* Hero */}
-      <section className={styles.hero}>
-        <div className="container">
-          <h1>{subService.name}</h1>
-          <p className={styles.subtitle}>{service.name}</p>
-          <p className={styles.description}>{subService.description}</p>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className={styles.content}>
-        <div className="container">
-          <div className={styles.contentGrid}>
-            <div className={styles.mainContent}>
-              <h2>Overview</h2>
-              <p>{subService.description}</p>
-
-              <h2 style={{ marginTop: '40px' }}>Key Features & Offerings</h2>
-              <div className={styles.featuresList}>
-                {subService.features.map((feature, idx) => (
-                  <div key={idx} className={styles.featureItem}>
-                    <span className={styles.checkmark}>✓</span>
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <h2 style={{ marginTop: '40px' }}>Our Delivery Guarantee</h2>
-              <ul className={styles.benefitsList}>
-                <li>Expert execution directly supervised by founder Yasar Intakhab Khan</li>
-                <li>Tailored and scalable architectures suited for long-term growth</li>
-                <li>Comprehensive QA checks and post-deployment reviews</li>
-                <li>Transparent timeline progression and milestone alerts</li>
-                <li>Flexible and competitive pricing plans</li>
-              </ul>
-
-              <h2 style={{ marginTop: '40px' }}>Process Workflow</h2>
-              <div className={styles.processSteps}>
-                <div className={styles.step}>
-                  <div className={styles.stepNumber}>1</div>
-                  <h4>Assessment</h4>
-                  <p>Understand goals</p>
-                </div>
-                <div className={styles.step}>
-                  <div className={styles.stepNumber}>2</div>
-                  <h4>Planning</h4>
-                  <p>Design blueprint</p>
-                </div>
-                <div className={styles.step}>
-                  <div className={styles.stepNumber}>3</div>
-                  <h4>Execution</h4>
-                  <p>Deliver cleanly</p>
-                </div>
-                <div className={styles.step}>
-                  <div className={styles.stepNumber}>4</div>
-                  <h4>Support</h4>
-                  <p>Maintain stack</p>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.sidebar}>
-              <div className={styles.card}>
-                <h3>Ready to Launch?</h3>
-                <p>Schedule a consulting call to plan out the scope of {subService.name.toLowerCase()}.</p>
-                <Link href={`/booking?service=${serviceKey}`} className="btn btn-primary btn-block" style={{ marginBottom: '12px' }}>
-                  📅 Book Consultation
-                </Link>
-                <a
-                  href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(subService.whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline btn-block"
-                  style={{ display: 'flex', justifyContent: 'center' }}
-                >
-                  💬 WhatsApp Discuss
-                </a>
-              </div>
-            </div>
+        {/* Breadcrumb Navigation */}
+        <div className="bg-slate-900 border-b border-slate-800 py-3 text-xs text-slate-400">
+          <div className="max-w-7xl mx-auto px-4 flex items-center space-x-2">
+            <Link href="/" className="hover:text-white">Home</Link>
+            <span>/</span>
+            <Link href={`/services/${serviceKey}`} className="hover:text-white">{service.name}</Link>
+            <span>/</span>
+            <span className="text-cyan-400 font-semibold">{subService.name}</span>
           </div>
         </div>
-      </section>
+
+        <main className="flex-1 max-w-7xl mx-auto px-4 py-12 w-full space-y-12">
+          {/* Top Fold Hero Header */}
+          <div className="space-y-4 text-center max-w-4xl mx-auto">
+            <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono rounded-full uppercase">
+              {service.name} — Thane, Mumbai &amp; MMR
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+              {pageH1}
+            </h1>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              {subService.description}
+            </p>
+          </div>
+
+          {/* Key Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {subService.features && subService.features.map((feature, idx) => (
+              <div key={idx} className="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-2 hover:border-cyan-500/50 transition">
+                <div className="text-cyan-400 text-lg font-bold">✓ 0{idx + 1}</div>
+                <h3 className="text-sm font-bold text-white">{feature}</h3>
+                <p className="text-xs text-slate-400">Directly supervised by Founder &amp; CTO Yasar Intakhab Khan.</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Interactive Conversion Callout Box */}
+          <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border border-cyan-500/30 rounded-3xl p-8 text-center space-y-4">
+            <h2 className="text-2xl font-bold text-white">Get a Custom Proposal &amp; Instant Audit</h2>
+            <p className="text-xs text-slate-300 max-w-xl mx-auto">
+              Ready to scale your digital presence with enterprise web engineering, performance marketing, and local SEO?
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <a
+                href={`https://wa.me/919967376681?text=${encodeURIComponent(subService.whatsappMessage || `Hi Allworkss, I want a proposal for ${pageH1}`)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold uppercase text-xs rounded-xl shadow-lg shadow-cyan-500/20"
+              >
+                Instant WhatsApp Quote ↗
+              </a>
+              <a
+                href="https://allworkss.space"
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-4 bg-slate-950 border border-slate-800 hover:border-slate-700 text-cyan-400 font-bold uppercase text-xs rounded-xl"
+              >
+                Explore ABIS 360° AI SaaS ↗
+              </a>
+            </div>
+          </div>
+        </main>
+
+        <Footer />
+      </div>
     </>
   );
-}
-
-export async function getStaticProps({ params }) {
-  const { key, subId } = params;
-  const service = getServiceByKey(key);
-  const subServices = getAllSubServices(key);
-  const subService = subServices.find((s) => s.id === subId);
-
-  if (!service || !subService) {
-    return { notFound: true };
-  }
-
-  return {
-    props: {
-      service,
-      subService,
-      serviceKey: key
-    },
-    revalidate: 60
-  };
 }
 
 export async function getStaticPaths() {
   const paths = [];
 
-  Object.entries(SERVICES_DATA).forEach(([key, service]) => {
-    if (service.subServices) {
-      service.subServices.forEach((subService) => {
+  Object.keys(SERVICES_DATA).forEach((key) => {
+    const category = SERVICES_DATA[key];
+    if (category.subServices) {
+      category.subServices.forEach((sub) => {
         paths.push({
-          params: { key, subId: subService.id }
+          params: { key: key, subId: sub.id }
         });
       });
     }
@@ -167,6 +171,33 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking'
+    fallback: false
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { key, subId } = params;
+  const category = SERVICES_DATA[key];
+
+  if (!category) {
+    return { notFound: true };
+  }
+
+  const subService = category.subServices.find((s) => s.id === subId);
+
+  if (!subService) {
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      service: {
+        name: category.name,
+        icon: category.icon || '🚀',
+        description: category.description
+      },
+      subService: subService,
+      serviceKey: key
+    }
   };
 }
