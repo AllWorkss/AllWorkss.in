@@ -3,6 +3,7 @@ import Head from 'next/head';
 import '../styles/globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import FloatingChatbot from '../components/interactive/FloatingChatbot';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Navbar />
       <Component {...pageProps} />
+      <FloatingChatbot />
       <Footer />
     </>
   );
