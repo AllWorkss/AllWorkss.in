@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.api.chatbot_routes import chat_router
 from app.api.seo_routes import seo_router
 from app.api.payment_routes import payment_router
+from app.api.service_pages import router as service_router
 
 app = FastAPI(
     title="Allworkss Business Intelligence Suite (ABIS) & Digital Agency API",
@@ -14,6 +15,7 @@ app = FastAPI(
 app.include_router(chat_router)
 app.include_router(seo_router)
 app.include_router(payment_router)
+app.include_router(service_router)
 
 @app.get("/api/v1/health")
 async def health_check():
