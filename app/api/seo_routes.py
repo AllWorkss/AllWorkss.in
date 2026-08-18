@@ -25,13 +25,14 @@ async def get_sitemap():
     today = datetime.now().strftime("%Y-%m-%d")
     urls = [
         "https://allworkss.in/",
-        "https://allworkss.in/services/google-business-profile",
-        "https://allworkss.in/services/technical-seo",
-        "https://allworkss.in/services/meta-ads-marketing",
-        "https://allworkss.in/services/cloud-infrastructure",
-        "https://allworkss.in/services/web-engineering",
-        "https://allworkss.in/services/business-funnels",
-        "https://allworkss.in/services/content-creation",
+        "https://allworkss.in/services/google-business-profile-optimization",
+        "https://allworkss.in/services/custom-website-development",
+        "https://allworkss.in/services/technical-seo-programmatic",
+        "https://allworkss.in/services/meta-ads-performance-marketing",
+        "https://allworkss.in/services/cloud-infrastructure-devops",
+        "https://allworkss.in/services/b2b-sales-funnels-automation",
+        "https://allworkss.in/services/domain-dns-brand-security",
+        "https://allworkss.in/services/omnichannel-content-creation",
         "https://allworkss.in/about-founder",
         "https://allworkss.space/",
         "https://yarsa.store/"
@@ -42,7 +43,7 @@ async def get_sitemap():
     <loc>{url}</loc>
     <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
   </url>""" for url in urls
     ])
 
