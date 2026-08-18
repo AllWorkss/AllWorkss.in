@@ -1,11 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /api/
+Allow: /templates/
+Allow: /static/
+Disallow: /tmp/
+Disallow: /api/v1/internal/
+Disallow: /admin/
 
-Sitemap: https://www.allworkss.in/sitemap.xml
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Sitemap: https://allworkss.space/sitemap.xml
+Host: https://allworkss.space
