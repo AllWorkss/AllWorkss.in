@@ -52,15 +52,18 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <div className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300">
             <a href="#ecosystem" className="hover:text-brand-cyan transition-colors py-1">
-              Products & Ecosystem
+              Products &amp; Sandboxes
+            </a>
+            <a href="#agency-solutions" className="hover:text-brand-cyan transition-colors py-1 text-brand-cyan font-bold">
+              ⚡ Agency &amp; Growth
             </a>
             <a href="#services" className="hover:text-brand-cyan transition-colors py-1">
-              SAP & Consulting
+              SAP &amp; Cloud AI
             </a>
-            <a href="#credentials" className="hover:text-brand-cyan transition-colors py-1">
-              Trust & Founder
+            <a href="#leadership" className="hover:text-brand-cyan transition-colors py-1">
+              Leadership
             </a>
             <a href="#connect" className="hover:text-brand-cyan transition-colors py-1">
               Contact Us

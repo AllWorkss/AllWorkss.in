@@ -13,6 +13,8 @@ import CommandPalette from '../components/interactive/CommandPalette';
 import TopologyGraph from '../components/interactive/TopologyGraph';
 import RoiEstimator from '../components/interactive/RoiEstimator';
 import EcosystemPulse from '../components/interactive/EcosystemPulse';
+import AgencyConsultancySolutions from '../components/sections/AgencyConsultancySolutions';
+import ExecutiveLeadership from '../components/sections/ExecutiveLeadership';
 import DualBrandEcosystem from '../components/sections/DualBrandEcosystem';
 import StrategicMatrix from '../components/sections/StrategicMatrix';
 
@@ -174,25 +176,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 5: DUAL-BRAND CORPORATE ECOSYSTEM (ALLWORKSS + YARSA STORE) */}
+        {/* SECTION 5: AGENCY & CONSULTANCY SOLUTIONS (360° DIGITAL MARKETING, TECH, CLOUD & FUNNELS) */}
+        <AgencyConsultancySolutions />
+
+        {/* SECTION 6: DUAL-BRAND CORPORATE ECOSYSTEM (ALLWORKSS + YARSA STORE) */}
         <DualBrandEcosystem />
 
-        {/* SECTION 6: STRATEGIC DIFFERENTIATION MATRIX (WHAT SETS YARSA APART) */}
+        {/* SECTION 7: STRATEGIC DIFFERENTIATION MATRIX (WHAT SETS YARSA APART) */}
         <StrategicMatrix />
 
-        {/* SECTION 7: 360° AI & SAP TOPOLOGY CANVAS */}
+        {/* SECTION 8: EXECUTIVE FOUNDER & CTO LEADERSHIP TRACK RECORD */}
+        <ExecutiveLeadership />
+
+        {/* SECTION 9: 360° AI & SAP TOPOLOGY CANVAS */}
         <TopologyGraph />
 
-        {/* SECTION 8: DYNAMIC ROI & SCOPE CALCULATOR */}
+        {/* SECTION 10: DYNAMIC ROI & SCOPE CALCULATOR */}
         <RoiEstimator />
 
-        {/* SECTION 9: ENTERPRISE CONSULTING & SAP SERVICES MATRIX */}
+        {/* SECTION 11: ENTERPRISE CONSULTING & SAP SERVICES MATRIX */}
         <ServicesMatrix />
 
-        {/* SECTION 10: FOUNDER CREDENTIALS & CORPORATE TRUST */}
+        {/* SECTION 12: FOUNDER CREDENTIALS & CORPORATE TRUST */}
         <FounderCredentials />
 
-        {/* SECTION 11: INSTANT CONNECT ENGINE */}
+        {/* SECTION 13: INSTANT CONNECT ENGINE */}
         <ConsultationConnect />
 
         {/* SECTION 12: ENTERPRISE FOOTER */}
