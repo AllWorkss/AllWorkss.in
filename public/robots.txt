@@ -1,12 +1,11 @@
 User-agent: *
 Allow: /
 Allow: /services/
+Allow: /modules/
 Allow: /about-founder
-Allow: /static/
 Disallow: /tmp/
 Disallow: /api/v1/internal/
 
 Sitemap: https://allworkss.in/sitemap.xml
 Sitemap: https://allworkss.space/sitemap.xml
-Sitemap: https://yarsa.store/sitemap.xml
 Host: https://allworkss.in

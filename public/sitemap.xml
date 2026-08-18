@@ -3,61 +3,97 @@
   <url>
     <loc>https://allworkss.in/</loc>
     <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/google-business-profile-optimization</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/custom-website-development</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/technical-seo-programmatic</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/meta-ads-performance-marketing</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/cloud-infrastructure-devops</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/b2b-sales-funnels-automation</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/domain-dns-brand-security</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://allworkss.in/services/omnichannel-content-creation</loc>
-    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://allworkss.in/about-founder</loc>
     <lastmod>2026-08-19</lastmod>
-    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/google-business-profile-optimization</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/custom-website-development</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/technical-seo-programmatic</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/meta-ads-performance-marketing</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/cloud-infrastructure-devops</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/b2b-sales-funnels-automation</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/domain-dns-brand-security</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.in/services/omnichannel-content-creation</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://allworkss.space/</loc>
     <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.space/modules/business-auditor</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yarsa.store/</loc>
+    <loc>https://allworkss.space/modules/supply-chain</loc>
     <lastmod>2026-08-19</lastmod>
-    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.space/modules/smart-inventory</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.space/modules/customer-intelligence</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://allworkss.space/modules/financial-growth</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
