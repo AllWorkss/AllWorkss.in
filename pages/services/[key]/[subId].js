@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { SERVICES_DATA } from '../../../lib/services-data';
+import { generateInquiryMessages } from '../../../lib/inquiry-templates';
 
 export default function SubServicePage({ service, subService, serviceKey }) {
   if (!service || !subService) {
@@ -20,6 +21,8 @@ export default function SubServicePage({ service, subService, serviceKey }) {
   const pageTitle = subService.title || `${subService.h1 || subService.name} in Thane & Mumbai | Allworkss`;
   const pageH1 = subService.h1 || subService.name;
   const canonicalUrl = `https://allworkss.in/services/${serviceKey}/${subService.id}`;
+
+  const { whatsappUrl, mailtoUrl } = generateInquiryMessages(serviceKey, subService.id, pageH1);
 
   const schemaGraph = {
     "@context": "https://schema.org",
@@ -122,28 +125,39 @@ export default function SubServicePage({ service, subService, serviceKey }) {
             ))}
           </div>
 
-          {/* Interactive Conversion Callout Box */}
-          <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border border-cyan-500/30 rounded-3xl p-8 text-center space-y-4">
-            <h2 className="text-2xl font-bold text-white">Get a Custom Proposal &amp; Instant Audit</h2>
-            <p className="text-xs text-slate-300 max-w-xl mx-auto">
-              Ready to scale your digital presence with enterprise web engineering, performance marketing, and local SEO?
+          {/* Dual 1-Click WhatsApp & Gmail Inquiry Dispatch Box */}
+          <div className="bg-slate-900 text-white p-8 rounded-3xl border border-slate-800 shadow-2xl my-8 text-center sm:text-left">
+            <h2 className="text-xl sm:text-2xl font-bold">Ready to deploy {pageH1}?</h2>
+            <p className="text-slate-400 text-xs sm:text-sm mt-2">
+              Skip boring multi-step forms. Connect directly with Founder &amp; CTO Yasar Intakhab Khan for an instant consultation.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
+              {/* 1-Click WhatsApp Button */}
               <a
-                href={`https://wa.me/919967376681?text=${encodeURIComponent(subService.whatsappMessage || `Hi Allworkss, I want a proposal for ${pageH1}`)}`}
+                href={whatsappUrl}
                 target="_blank"
-                rel="noreferrer"
-                className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold uppercase text-xs rounded-xl shadow-lg shadow-cyan-500/20"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl flex items-center justify-center gap-2.5 shadow-lg transition transform hover:scale-[1.02] text-xs"
               >
-                Instant WhatsApp Quote ↗
+                <span className="text-lg">💬</span> Direct WhatsApp Inquiry
               </a>
+
+              {/* 1-Click Direct Email Dispatch */}
+              <a
+                href={mailtoUrl}
+                className="w-full sm:w-auto px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl flex items-center justify-center gap-2.5 shadow-lg transition transform hover:scale-[1.02] text-xs"
+              >
+                <span className="text-lg">✉️</span> Send Direct Gmail Request
+              </a>
+
               <a
                 href="https://allworkss.space"
                 target="_blank"
-                rel="noreferrer"
-                className="px-8 py-4 bg-slate-950 border border-slate-800 hover:border-slate-700 text-cyan-400 font-bold uppercase text-xs rounded-xl"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 py-3.5 bg-slate-950 border border-slate-800 hover:border-slate-700 text-cyan-400 font-semibold rounded-2xl flex items-center justify-center gap-2 text-xs"
               >
-                Explore ABIS 360° AI SaaS ↗
+                Explore ABIS SaaS ↗
               </a>
             </div>
           </div>
