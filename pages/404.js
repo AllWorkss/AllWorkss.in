@@ -1,35 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from '../styles/404.module.css';
 
 export default function Custom404() {
   return (
-    <div className={styles.container404}>
-      <div className={styles.content}>
-        <div className={styles.errorCode}>404</div>
-        <h1>Page Not Found</h1>
-        <p>The page you're looking for doesn't exist or has been moved.</p>
+    <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center p-6 text-center font-sans">
+      <div className="text-8xl font-black text-blue-500 mb-4 tracking-tighter">404</div>
+      <h1 className="text-3xl font-extrabold text-white mb-2">Page Not Found</h1>
+      <p className="text-slate-400 text-sm max-w-md mb-8">
+        The page you are looking for does not exist or has been moved within the Allworkss ecosystem.
+      </p>
 
-        <div className={styles.suggestions}>
-          <h3>Here are some helpful links instead:</h3>
-          <div className={styles.links}>
-            <Link href="/" className="btn btn-primary">
-              🏠 Go Home
-            </Link>
-            <Link href="#services" className="btn btn-outline">
-              📋 View Services
-            </Link>
-            <Link href="/booking" className="btn btn-secondary">
-              📅 Book Consultation
-            </Link>
-          </div>
-        </div>
-
-        <p style={{ marginTop: '40px', color: 'var(--text-light)' }}>
-          If you believe this is a mistake, please contact us at{' '}
-          <a href="mailto:theallworkss@gmail.com">theallworkss@gmail.com</a>
-        </p>
+      <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
+        <Link href="/" className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow font-bold">
+          🏠 Go Home
+        </Link>
+        <Link href="/about-founder" className="px-6 py-3 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-xl font-bold">
+          👤 About Founder
+        </Link>
+        <a href="https://allworkss.space" target="_blank" rel="noreferrer" className="px-6 py-3 bg-slate-900 border border-slate-800 hover:border-slate-700 text-cyan-400 rounded-xl font-bold">
+          ABIS SaaS ↗
+        </a>
       </div>
+
+      <p className="mt-12 text-xs text-slate-500">
+        Contact support at <a href="mailto:theallworkss@gmail.com" className="text-blue-400 hover:underline">theallworkss@gmail.com</a>
+      </p>
     </div>
   );
 }
