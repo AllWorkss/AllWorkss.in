@@ -13,6 +13,10 @@ import CommandPalette from '../components/interactive/CommandPalette';
 import TopologyGraph from '../components/interactive/TopologyGraph';
 import RoiEstimator from '../components/interactive/RoiEstimator';
 import EcosystemPulse from '../components/interactive/EcosystemPulse';
+import BusinessHealthQuiz from '../components/interactive/BusinessHealthQuiz';
+import LiveRoiCalculator from '../components/interactive/LiveRoiCalculator';
+import SerpPreviewer from '../components/interactive/SerpPreviewer';
+import PipelineBeamVisualizer from '../components/ui/3d/PipelineBeamVisualizer';
 import AgencyConsultancySolutions from '../components/sections/AgencyConsultancySolutions';
 import ExecutiveLeadership from '../components/sections/ExecutiveLeadership';
 import DualBrandEcosystem from '../components/sections/DualBrandEcosystem';
@@ -178,6 +182,33 @@ export default function Home() {
 
         {/* SECTION 5: AGENCY & CONSULTANCY SOLUTIONS (360° DIGITAL MARKETING, TECH, CLOUD & FUNNELS) */}
         <AgencyConsultancySolutions />
+
+        {/* SECTION 5.5: INTERACTIVE DIAGNOSTIC & GROWTH WIDGETS */}
+        <section id="interactive-tools" className="py-20 bg-[#050814] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono font-semibold uppercase">
+                <Zap className="w-3.5 h-3.5" /> Client Diagnostic &amp; Conversion Tools
+              </div>
+              <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white">
+                Interactive <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400">Business Growth &amp; ROI Suite</span>
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base">
+                Assess operational health, estimate unlocked capital, and preview local Google 3-Pack rankings in real time.
+              </p>
+            </div>
+
+            <PipelineBeamVisualizer />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <BusinessHealthQuiz />
+              <div className="space-y-8">
+                <LiveRoiCalculator />
+                <SerpPreviewer />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* SECTION 6: DUAL-BRAND CORPORATE ECOSYSTEM (ALLWORKSS + YARSA STORE) */}
         <DualBrandEcosystem />

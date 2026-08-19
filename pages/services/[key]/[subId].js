@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
+import BusinessHealthQuiz from '../../../components/interactive/BusinessHealthQuiz';
+import LiveRoiCalculator from '../../../components/interactive/LiveRoiCalculator';
+import SerpPreviewer from '../../../components/interactive/SerpPreviewer';
 import { SERVICES_DATA } from '../../../lib/services-data';
 import { generateInquiryMessages } from '../../../lib/inquiry-templates';
 import { 
@@ -315,6 +318,20 @@ export default function SubServicePage({ service, subService, serviceKey }) {
                   </span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* SECTION 4.5: INTERACTIVE DIAGNOSTIC & ROI SUITE */}
+          <div id="interactive-tools" className="space-y-8 pt-8 border-t border-slate-800/80">
+            <div className="text-center max-w-2xl mx-auto space-y-2">
+              <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest block">Client Interactive Suite</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">Live Diagnostic &amp; Capital Calculator</h2>
+              <p className="text-slate-400 text-xs sm:text-sm">Estimate unlocked capital and diagnose system anomalies in real time.</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <LiveRoiCalculator />
+              <BusinessHealthQuiz />
             </div>
           </div>
 
